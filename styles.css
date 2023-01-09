@@ -1,0 +1,18 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: #35363a;
+  color: white;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
+.calculator {
+  background-color: #94A7F2;
+  margin: 50px 25px;
+  flex: 0 1 500px;
+}
