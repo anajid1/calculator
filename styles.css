@@ -21,7 +21,7 @@ body {
   flex-direction: column;
 }
 
-.output {
+#output {
   align-self: stretch;
   text-align: end;
   margin: 5px;
