@@ -56,11 +56,12 @@ const number = [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ];
 const btns = document.getElementsByTagName("button");
 
 for (const btn of btns)
-  btn.onclick = () => handleClick(btn.textContent);
+  btn.onclick = () => handleClick(btn);
 
 let clearOutput = false;
 
-function handleClick(btnText) {
+function handleClick(btn) {
+  let btnText = btn.textContent;
   console.log("BTN-TEXT: " + btnText);
   // Button was a number
   if (number[btnText]) {
@@ -77,12 +78,16 @@ function handleClick(btnText) {
     setOutput(0);
     calculator.clear();
     opPressed = false;
-    calculator.clear();
+    calculator.clear()
+    clearButtonColors();
   } else if (btnText === "=") {
     const num = parseInt(getOutput());
     compute(num);
+    clearButtonColors();
   } else {
+    clearButtonColors();
     clearOutput = true;
+    btn.style.backgroundColor = "#ACAFBD";
     calculator.setX(parseInt(getOutput()));
     calculator.setOp(btnText);
   }
@@ -98,4 +103,10 @@ function compute(num) {
 function getOutput() { return document.getElementById("output").textContent; }
 function setOutput(x) { document.getElementById("output").textContent = x; }
 function appendOutput(x) { document.getElementById("output").textContent += x; }
+
+function clearButtonColors() {
+  for (const btn of btns)
+    btn.style.backgroundColor = "#444D70";
+}
+
 
